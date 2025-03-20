@@ -1,8 +1,11 @@
-import { View, Text, Image, ScrollView } from 'react-native'
-import React from 'react'
+import { View, Text, Image, ScrollView, Button, Modal } from 'react-native'
+import React, { useState } from 'react'
 const logoImage = require('./assets/images.jpeg');
 
 const App = () => {
+
+  const [modalIsVisible, setModalIsVisible] = useState(false);
+
   return (
     <View style = {{padding: 20}}>
       <ScrollView>
@@ -44,6 +47,18 @@ const App = () => {
           Sign Up
         </Text>
         <Image source={{ uri: "https://stecs.ng/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fhero_img.c10f00dc.webp&w=3840&q=75"}} style={{height: 300, width: 300}}/>
+
+        <Button title='Open Modal' onPress={() => setModalIsVisible(true)} color="midnightblue"/>
+
+        <Modal visible={modalIsVisible} style = {{height: 200}}>
+          <View style={{ padding: 20, backgroundColor: "cyan", height: 200, flex: 1}}>
+            <Text>
+              This is the modal section
+            </Text>
+
+            <Button title='Close' onPress={() => setModalIsVisible(false)}/>
+          </View>
+        </Modal>
       </ScrollView>
     </View>
   )
