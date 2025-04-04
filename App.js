@@ -1,6 +1,7 @@
 import { View, Text, Image, ScrollView, Button, Modal } from "react-native";
 import React, { useState } from "react";
 import { StatusBar } from "expo-status-bar";
+import Greet from "./Components/Greet";
 const logoImage = require("./assets/images.jpeg");
 
 const App = () => {
@@ -10,6 +11,7 @@ const App = () => {
   return (
     <View style={{ padding: 20, backgroundColor: "orange" }}>
       <ScrollView>
+        <Greet name = {"olawale"}/>
         <Image
           source={{
             uri: "https://stecs.ng/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fhero_img.c10f00dc.webp&w=3840&q=75",
@@ -62,7 +64,7 @@ const App = () => {
             <Button title="Close" onPress={() => setModalIsVisible(false)} />
           </View>
         </Modal>
-        <Button title={hideSb ? "hide status bar" : "Show status bar"} onPress={() => setHideSb(!hideSb)}/>
+        <Button title={hideSb ? "Show status bar" : "hide status bar"} onPress={() => setHideSb(!hideSb)}/>
       </ScrollView>
 
       <StatusBar backgroundColor="black" barStyle = 'light-content' hidden = {hideSb}/>
